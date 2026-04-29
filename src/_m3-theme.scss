@@ -1,0 +1,357 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+@use 'sass:list';
+
+// ============================================================================
+// Material 3 Custom Theme Configuration
+// ============================================================================
+// This file defines the Material Design 3 theme using modern @use syntax.
+// Supports light and dark mode with customizable color tokens.
+// ============================================================================
+
+// ---------------------------------------------------------------------------
+// Color Palettes
+// ---------------------------------------------------------------------------
+// Material 3 uses a modern color system with primary, secondary, tertiary
+// and additional semantic colors. Customize these values for your brand.
+
+// Primary color palette (used for main actions)
+$primary-palette: (
+  0: #000000,
+  10: #21005d,
+  20: #3d0a7a,
+  25: #4d0ba8,
+  30: #5e1b9a,
+  35: #6e2ab1,
+  40: #7e3cbf,
+  50: #9d54d4,
+  60: #bd54e0,
+  70: #d26ee3,
+  80: #ea86d4,
+  90: #f5c5e1,
+  95: #fae8f0,
+  99: #fffbfe,
+  100: #ffffff,
+);
+
+// Secondary color palette (accent actions)
+$secondary-palette: (
+  0: #000000,
+  10: #1e192b,
+  20: #332d41,
+  25: #3e3749,
+  30: #4a4458,
+  35: #565066,
+  40: #625b71,
+  50: #79747e,
+  60: #938f99,
+  70: #aca9b5,
+  80: #c4c7c5,
+  90: #ddd9e3,
+  95: #ece6f0,
+  99: #fffbfe,
+  100: #ffffff,
+);
+
+// Tertiary color palette (tertiary actions)
+$tertiary-palette: (
+  0: #000000,
+  10: #1f0844,
+  20: #3a1d62,
+  25: #462878,
+  30: #543390,
+  35: #6239a8,
+  40: #7141bf,
+  50: #8b5ce6,
+  60: #a578f3,
+  70: #be95f9,
+  80: #d9b3ff,
+  90: #f3d9ff,
+  95: #f9edff,
+  99: #fffbfe,
+  100: #ffffff,
+);
+
+// Neutral palette (backgrounds, surfaces, outlines)
+$neutral-palette: (
+  0: #000000,
+  4: #0f0d13,
+  5: #17151c,
+  10: #1c1a20,
+  12: #201e26,
+  17: #2d2b31,
+  20: #32303a,
+  25: #3f3d44,
+  30: #49474e,
+  35: #545058,
+  40: #605d64,
+  50: #79747e,
+  60: #938f99,
+  70: #aca9b5,
+  75: #bbb9c0,
+  80: #c4c7c5,
+  85: #cfd0ce,
+  90: #dbd7de,
+  92: #e3dfe8,
+  95: #ece6f0,
+  99: #fffbfe,
+  100: #ffffff,
+);
+
+// Neutral variant palette (alternative neutrals, outlines variant)
+$neutral-variant-palette: (
+  0: #000000,
+  10: #1d192b,
+  20: #332d41,
+  25: #3f3749,
+  30: #4a4458,
+  35: #565066,
+  40: #625b71,
+  50: #79747e,
+  60: #938f99,
+  70: #aca9b5,
+  80: #c4c7c5,
+  90: #ddd9e3,
+  95: #ece6f0,
+  99: #fffbfe,
+  100: #ffffff,
+);
+
+// Semantic colors
+$error-palette: (
+  0: #000000,
+  10: #410e0b,
+  20: #601410,
+  25: #721b15,
+  30: #84251d,
+  35: #932f25,
+  40: #b3261e,
+  50: #de3730,
+  60: #f2b8b5,
+  70: #f9dedc,
+  80: #f9dedc,
+  90: #f9dedc,
+  95: #fcee ee,
+  99: #fffbfe,
+  100: #ffffff,
+);
+
+// ---------------------------------------------------------------------------
+// Light Theme Configuration
+// ---------------------------------------------------------------------------
+$light-theme: mat.define-theme((color: (theme-type: light,
+        primary: $primary-palette,
+        secondary: $secondary-palette,
+        tertiary: $tertiary-palette,
+        neutral: $neutral-palette,
+        neutral-variant: $neutral-variant-palette,
+        error: $error-palette,
+      ),
+      typography: (brand-family: '"Roboto", sans-serif',
+        plain-family: '"Roboto", sans-serif',
+        bold-family: '"Roboto", sans-serif',
+        weight-bold: 700,
+        weight-medium: 500,
+        weight-regular: 400,
+      ),
+    ));
+
+// ---------------------------------------------------------------------------
+// Dark Theme Configuration
+// ---------------------------------------------------------------------------
+$dark-theme: mat.define-theme((color: (theme-type: dark,
+        primary: $primary-palette,
+        secondary: $secondary-palette,
+        tertiary: $tertiary-palette,
+        neutral: $neutral-palette,
+        neutral-variant: $neutral-variant-palette,
+        error: $error-palette,
+      ),
+      typography: (brand-family: '"Roboto", sans-serif',
+        plain-family: '"Roboto", sans-serif',
+        bold-family: '"Roboto", sans-serif',
+        weight-bold: 700,
+        weight-medium: 500,
+        weight-regular: 400,
+      ),
+    ));
+
+// ---------------------------------------------------------------------------
+// High Contrast Theme Configuration (for accessibility)
+// ---------------------------------------------------------------------------
+$high-contrast-light-theme: mat.define-theme((color: (theme-type: light,
+        primary: (0: #000000,
+          10: #000000,
+          20: #001f3f,
+          30: #003366,
+          40: #0047a3,
+          50: #1a5aff,
+          60: #4d7fff,
+          70: #80a3ff,
+          80: #b3ccff,
+          90: #cce0ff,
+          95: #e6f0ff,
+          99: #fffbfe,
+          100: #ffffff,
+        ),
+        secondary: $secondary-palette,
+        tertiary: $tertiary-palette,
+        neutral: $neutral-palette,
+        neutral-variant: $neutral-variant-palette,
+        error: (0: #000000,
+          10: #330000,
+          20: #660000,
+          30: #990000,
+          40: #cc0000,
+          50: #ff0000,
+          60: #ff4444,
+          70: #ff8888,
+          80: #ffcccc,
+          90: #ffeeee,
+          95: #fff5f5,
+          99: #fffbfe,
+          100: #ffffff,
+        ),
+      ),
+      typography: (brand-family: '"Roboto", sans-serif',
+        plain-family: '"Roboto", sans-serif',
+        bold-family: '"Roboto", sans-serif',
+        weight-bold: 700,
+        weight-medium: 500,
+        weight-regular: 400,
+      ),
+    ));
+
+$high-contrast-dark-theme: mat.define-theme((color: (theme-type: dark,
+        primary: (0: #000000,
+          10: #000000,
+          20: #001f3f,
+          30: #003366,
+          40: #0047a3,
+          50: #1a5aff,
+          60: #4d7fff,
+          70: #80a3ff,
+          80: #b3ccff,
+          90: #cce0ff,
+          95: #e6f0ff,
+          99: #fffbfe,
+          100: #ffffff,
+        ),
+        secondary: $secondary-palette,
+        tertiary: $tertiary-palette,
+        neutral: $neutral-palette,
+        neutral-variant: $neutral-variant-palette,
+        error: (0: #000000,
+          10: #330000,
+          20: #660000,
+          30: #990000,
+          40: #cc0000,
+          50: #ff0000,
+          60: #ff4444,
+          70: #ff8888,
+          80: #ffcccc,
+          90: #ffeeee,
+          95: #fff5f5,
+          99: #fffbfe,
+          100: #ffffff,
+        ),
+      ),
+      typography: (brand-family: '"Roboto", sans-serif',
+        plain-family: '"Roboto", sans-serif',
+        bold-family: '"Roboto", sans-serif',
+        weight-bold: 700,
+        weight-medium: 500,
+        weight-regular: 400,
+      ),
+    ));
+
+// ---------------------------------------------------------------------------
+// CSS Custom Properties (CSS Variables) for Dynamic Theming
+// ---------------------------------------------------------------------------
+@mixin light-theme-tokens {
+  --md-ref-palette-primary0: map.get($primary-palette, 0);
+  --md-ref-palette-primary10: map.get($primary-palette, 10);
+  --md-ref-palette-primary20: map.get($primary-palette, 20);
+  --md-ref-palette-primary40: map.get($primary-palette, 40);
+  --md-ref-palette-primary50: map.get($primary-palette, 50);
+  --md-ref-palette-primary60: map.get($primary-palette, 60);
+  --md-ref-palette-primary80: map.get($primary-palette, 80);
+  --md-ref-palette-primary90: map.get($primary-palette, 90);
+  --md-ref-palette-primary100: map.get($primary-palette, 100);
+
+  --md-sys-color-primary: #7e3cbf;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #f5c5e1;
+  --md-sys-color-on-primary-container: #3d0a7a;
+
+  --md-sys-color-secondary: #625b71;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #ddd9e3;
+  --md-sys-color-on-secondary-container: #1e192b;
+
+  --md-sys-color-tertiary: #7141bf;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #f3d9ff;
+  --md-sys-color-on-tertiary-container: #3a1d62;
+
+  --md-sys-color-error: #b3261e;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #f9dedc;
+  --md-sys-color-on-error-container: #410e0b;
+
+  --md-sys-color-background: #fffbfe;
+  --md-sys-color-on-background: #1c1a20;
+
+  --md-sys-color-surface: #fffbfe;
+  --md-sys-color-on-surface: #1c1a20;
+  --md-sys-color-surface-variant: #ece6f0;
+  --md-sys-color-on-surface-variant: #49474e;
+
+  --md-sys-color-outline: #79747e;
+  --md-sys-color-outline-variant: #cac4d0;
+
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-shadow: #000000;
+}
+
+@mixin dark-theme-tokens {
+  --md-sys-color-primary: #bd54e0;
+  --md-sys-color-on-primary: #3d0a7a;
+  --md-sys-color-primary-container: #5e1b9a;
+  --md-sys-color-on-primary-container: #f5c5e1;
+
+  --md-sys-color-secondary: #cac4d0;
+  --md-sys-color-on-secondary: #332d41;
+  --md-sys-color-secondary-container: #4a4458;
+  --md-sys-color-on-secondary-container: #ddd9e3;
+
+  --md-sys-color-tertiary: #d9b3ff;
+  --md-sys-color-on-tertiary: #3a1d62;
+  --md-sys-color-tertiary-container: #543390;
+  --md-sys-color-on-tertiary-container: #f3d9ff;
+
+  --md-sys-color-error: #f2b8b5;
+  --md-sys-color-on-error: #601410;
+  --md-sys-color-error-container: #8c1d18;
+  --md-sys-color-on-error-container: #f9dedc;
+
+  --md-sys-color-background: #1c1a20;
+  --md-sys-color-on-background: #e8def8;
+
+  --md-sys-color-surface: #1c1a20;
+  --md-sys-color-on-surface: #e8def8;
+  --md-sys-color-surface-variant: #49474e;
+  --md-sys-color-on-surface-variant: #cac4d0;
+
+  --md-sys-color-outline: #938f99;
+  --md-sys-color-outline-variant: #49474e;
+
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-shadow: #000000;
+}
+
+// ---------------------------------------------------------------------------
+// Theme Exports
+// ---------------------------------------------------------------------------
+// Export theme objects for use in other stylesheets
+// Usage: @use '_m3-theme' as theme; @include theme.$light-theme;

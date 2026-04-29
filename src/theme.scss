@@ -1,0 +1,66 @@
+@use '@angular/material' as mat;
+@use '_m3-theme' as m3;
+
+// ============================================================================
+// Material 3 Theme Application
+// ============================================================================
+// This file applies the Material 3 themes defined in _m3-theme.scss
+// Supports light, dark, and high-contrast modes.
+// ============================================================================
+
+// ---------------------------------------------------------------------------
+// Light Theme (Default)
+// ---------------------------------------------------------------------------
+:root {
+  @include mat.all-component-themes(m3.$light-theme);
+  @include m3.light-theme-tokens;
+
+  color-scheme: light;
+}
+
+// ---------------------------------------------------------------------------
+// Dark Theme
+// ---------------------------------------------------------------------------
+html[data-theme="dark"],
+.dark-theme {
+  @include mat.all-component-colors(m3.$dark-theme);
+  @include m3.dark-theme-tokens;
+
+  color-scheme: dark;
+}
+
+// Support for prefers-color-scheme media query
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    @include mat.all-component-colors(m3.$dark-theme);
+    @include m3.dark-theme-tokens;
+
+    color-scheme: dark;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// High Contrast Theme (Accessibility)
+// ---------------------------------------------------------------------------
+html[data-theme="high-contrast-light"],
+.high-contrast-light-theme {
+  @include mat.all-component-themes(m3.$high-contrast-light-theme);
+  color-scheme: light;
+}
+
+html[data-theme="high-contrast-dark"],
+.high-contrast-dark-theme {
+  @include mat.all-component-themes(m3.$high-contrast-dark-theme);
+  color-scheme: dark;
+}
+
+// Support for prefers-contrast media query
+@media (prefers-contrast: more) {
+  html:not([data-theme]) {
+    @include mat.all-component-themes(m3.$high-contrast-light-theme);
+  }
+
+  html[data-theme="dark"] {
+    @include mat.all-component-themes(m3.$high-contrast-dark-theme);
+  }
+}
