@@ -30,7 +30,7 @@ describe('ThemeService', () => {
 
     // Mock matchMedia
     mockMatchMedia = vi.fn((query: string) => ({
-      matches: query === '(prefers-color-scheme: dark)',
+      matches: false, // Default to light mode
       media: query,
       onchange: null,
       addListener: vi.fn(),
@@ -43,14 +43,17 @@ describe('ThemeService', () => {
     Object.defineProperty(window, 'matchMedia', {
       value: mockMatchMedia,
       writable: true,
+      configurable: true,
     });
 
     TestBed.configureTestingModule({});
     service = TestBed.inject(ThemeService);
+    TestBed.flushEffects();
   });
 
   afterEach(() => {
     mockLocalStorage = {};
+    vi.clearAllMocks();
   });
 
   it('should be created', () => {
@@ -80,17 +83,21 @@ describe('ThemeService', () => {
 
   it('should apply theme to DOM', () => {
     service.setTheme('dark');
+    TestBed.flushEffects();
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
 
     service.setTheme('light');
+    TestBed.flushEffects();
     expect(document.documentElement.getAttribute('data-theme')).toBeNull();
   });
 
   it('should persist theme to localStorage', () => {
     service.setTheme('dark');
+    TestBed.flushEffects();
     expect(mockLocalStorage['app-theme']).toBe('dark');
 
     service.setTheme('high-contrast-light');
+    TestBed.flushEffects();
     expect(mockLocalStorage['app-theme']).toBe('high-contrast-light');
   });
 

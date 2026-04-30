@@ -117,7 +117,7 @@ $neutral-variant-palette: (
   100: #ffffff,
 );
 
-// Semantic colors
+// Error palette (semantic color for errors)
 $error-palette: (
   0: #000000,
   10: #410e0b,
@@ -131,7 +131,7 @@ $error-palette: (
   70: #f9dedc,
   80: #f9dedc,
   90: #f9dedc,
-  95: #fcee ee,
+  95: #fceeee,
   99: #fffbfe,
   100: #ffffff,
 );
@@ -140,19 +140,14 @@ $error-palette: (
 // Light Theme Configuration
 // ---------------------------------------------------------------------------
 $light-theme: mat.define-theme((color: (theme-type: light,
-        primary: $primary-palette,
-        secondary: $secondary-palette,
-        tertiary: $tertiary-palette,
-        neutral: $neutral-palette,
-        neutral-variant: $neutral-variant-palette,
-        error: $error-palette,
+        primary: mat.$violet-palette,
+        tertiary: mat.$violet-palette,
       ),
       typography: (brand-family: '"Roboto", sans-serif',
         plain-family: '"Roboto", sans-serif',
-        bold-family: '"Roboto", sans-serif',
-        weight-bold: 700,
-        weight-medium: 500,
-        weight-regular: 400,
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400,
       ),
     ));
 
@@ -160,19 +155,14 @@ $light-theme: mat.define-theme((color: (theme-type: light,
 // Dark Theme Configuration
 // ---------------------------------------------------------------------------
 $dark-theme: mat.define-theme((color: (theme-type: dark,
-        primary: $primary-palette,
-        secondary: $secondary-palette,
-        tertiary: $tertiary-palette,
-        neutral: $neutral-palette,
-        neutral-variant: $neutral-variant-palette,
-        error: $error-palette,
+        primary: mat.$violet-palette,
+        tertiary: mat.$violet-palette,
       ),
       typography: (brand-family: '"Roboto", sans-serif',
         plain-family: '"Roboto", sans-serif',
-        bold-family: '"Roboto", sans-serif',
-        weight-bold: 700,
-        weight-medium: 500,
-        weight-regular: 400,
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400,
       ),
     ));
 
@@ -180,88 +170,26 @@ $dark-theme: mat.define-theme((color: (theme-type: dark,
 // High Contrast Theme Configuration (for accessibility)
 // ---------------------------------------------------------------------------
 $high-contrast-light-theme: mat.define-theme((color: (theme-type: light,
-        primary: (0: #000000,
-          10: #000000,
-          20: #001f3f,
-          30: #003366,
-          40: #0047a3,
-          50: #1a5aff,
-          60: #4d7fff,
-          70: #80a3ff,
-          80: #b3ccff,
-          90: #cce0ff,
-          95: #e6f0ff,
-          99: #fffbfe,
-          100: #ffffff,
-        ),
-        secondary: $secondary-palette,
-        tertiary: $tertiary-palette,
-        neutral: $neutral-palette,
-        neutral-variant: $neutral-variant-palette,
-        error: (0: #000000,
-          10: #330000,
-          20: #660000,
-          30: #990000,
-          40: #cc0000,
-          50: #ff0000,
-          60: #ff4444,
-          70: #ff8888,
-          80: #ffcccc,
-          90: #ffeeee,
-          95: #fff5f5,
-          99: #fffbfe,
-          100: #ffffff,
-        ),
+        primary: mat.$azure-palette,
+        tertiary: mat.$violet-palette,
       ),
       typography: (brand-family: '"Roboto", sans-serif',
         plain-family: '"Roboto", sans-serif',
-        bold-family: '"Roboto", sans-serif',
-        weight-bold: 700,
-        weight-medium: 500,
-        weight-regular: 400,
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400,
       ),
     ));
 
 $high-contrast-dark-theme: mat.define-theme((color: (theme-type: dark,
-        primary: (0: #000000,
-          10: #000000,
-          20: #001f3f,
-          30: #003366,
-          40: #0047a3,
-          50: #1a5aff,
-          60: #4d7fff,
-          70: #80a3ff,
-          80: #b3ccff,
-          90: #cce0ff,
-          95: #e6f0ff,
-          99: #fffbfe,
-          100: #ffffff,
-        ),
-        secondary: $secondary-palette,
-        tertiary: $tertiary-palette,
-        neutral: $neutral-palette,
-        neutral-variant: $neutral-variant-palette,
-        error: (0: #000000,
-          10: #330000,
-          20: #660000,
-          30: #990000,
-          40: #cc0000,
-          50: #ff0000,
-          60: #ff4444,
-          70: #ff8888,
-          80: #ffcccc,
-          90: #ffeeee,
-          95: #fff5f5,
-          99: #fffbfe,
-          100: #ffffff,
-        ),
+        primary: mat.$azure-palette,
+        tertiary: mat.$violet-palette,
       ),
       typography: (brand-family: '"Roboto", sans-serif',
         plain-family: '"Roboto", sans-serif',
-        bold-family: '"Roboto", sans-serif',
-        weight-bold: 700,
-        weight-medium: 500,
-        weight-regular: 400,
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400,
       ),
     ));
 
@@ -307,6 +235,12 @@ $high-contrast-dark-theme: mat.define-theme((color: (theme-type: dark,
   --md-sys-color-surface-variant: #ece6f0;
   --md-sys-color-on-surface-variant: #49474e;
 
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f7f2fa;
+  --md-sys-color-surface-container: #f3edf7;
+  --md-sys-color-surface-container-high: #ece7f2;
+  --md-sys-color-surface-container-highest: #e6e1ea;
+
   --md-sys-color-outline: #79747e;
   --md-sys-color-outline-variant: #cac4d0;
 
@@ -342,6 +276,12 @@ $high-contrast-dark-theme: mat.define-theme((color: (theme-type: dark,
   --md-sys-color-on-surface: #e8def8;
   --md-sys-color-surface-variant: #49474e;
   --md-sys-color-on-surface-variant: #cac4d0;
+
+  --md-sys-color-surface-container-lowest: #0f0d13;
+  --md-sys-color-surface-container-low: #1c1b1f;
+  --md-sys-color-surface-container: #211f26;
+  --md-sys-color-surface-container-high: #2b2930;
+  --md-sys-color-surface-container-highest: #36343b;
 
   --md-sys-color-outline: #938f99;
   --md-sys-color-outline-variant: #49474e;

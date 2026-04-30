@@ -23,7 +23,7 @@
 // ---------------------------------------------------------------------------
 html[data-theme="dark"],
 .dark-theme {
-  @include mat.all-component-colors(m3.$dark-theme);
+  @include mat.all-component-themes(m3.$dark-theme);
   @include m3.dark-theme-tokens;
 
   color-scheme: dark;
@@ -32,7 +32,7 @@ html[data-theme="dark"],
 // Support for prefers-color-scheme media query
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) {
-    @include mat.all-component-colors(m3.$dark-theme);
+    @include mat.all-component-themes(m3.$dark-theme);
     @include m3.dark-theme-tokens;
 
     color-scheme: dark;

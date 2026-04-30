@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ThemeShowcaseComponent } from './theme-showcase.component';
+import { NavbarComponent } from './navbar';
+import { FooterComponent } from './footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ThemeShowcaseComponent],
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    FooterComponent,
+  ],
   template: `
-    <app-theme-showcase></app-theme-showcase>
-    <router-outlet></router-outlet>
+    <app-navbar></app-navbar>
+    <main class="app-main">
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
   `,
   styleUrl: './app.scss',
 })
